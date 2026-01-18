@@ -1,0 +1,48 @@
+tasks:
+  # Parallel group 1 - Can run simultaneously
+  - title: Set up Rust project structure
+    completed: false
+    parallel_group: 1
+
+  - title: Create database migrations
+    completed: false
+    parallel_group: 1
+
+  - title: Set up CI/CD pipeline
+    completed: false
+    parallel_group: 1
+
+  # Parallel group 2 - Depends on group 1
+  - title: Implement user authentication
+    completed: false
+    parallel_group: 2
+
+  - title: Create API endpoints
+    completed: false
+    parallel_group: 2
+
+  - title: Build frontend components
+    completed: false
+    parallel_group: 2
+
+  # Parallel group 3 - Integration tasks
+  - title: Write integration tests
+    completed: false
+    parallel_group: 3
+
+  - title: Add API documentation
+    completed: false
+    parallel_group: 3
+
+  # Final tasks - Run sequentially
+  - title: Performance optimization
+    completed: false
+    parallel_group: 4
+
+  - title: Security audit
+    completed: false
+    parallel_group: 5
+
+  - title: Deploy to production
+    completed: false
+    parallel_group: 6

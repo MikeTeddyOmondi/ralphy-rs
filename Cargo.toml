@@ -1,0 +1,68 @@
+[package]
+name = "ralphy-rs"
+version = "1.0.0"
+edition = "2021"
+authors = ["Your Name <your.email@example.com>"]
+description = "Autonomous AI coding loop - Rust edition. Runs Claude Code, Codex, OpenCode & Cursor in a loop until your PRD is complete."
+license = "MIT"
+repository = "https://github.com/yourusername/ralphy-rs"
+
+[[bin]]
+name = "ralphy"
+path = "src/main.rs"
+
+[dependencies]
+# CLI
+clap = { version = "4.5", features = ["derive", "color", "env"] }
+
+# Async runtime
+tokio = { version = "1", features = ["full"] }
+futures = "0.3"
+
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+serde_yaml = "0.9"
+
+# Git operations
+git2 = "0.19"
+
+# Process execution
+tokio-process = "0.2"
+
+# Terminal UI
+indicatif = { version = "0.17", features = ["tokio"] }
+console = "0.15"
+colored = "2"
+
+# Error handling
+anyhow = "1"
+thiserror = "1"
+
+# Regex
+regex = "1"
+
+# HTTP client (for GitHub API)
+reqwest = { version = "0.12", features = ["json"] }
+
+# Time
+chrono = "0.4"
+
+# File watching and temp files
+tempfile = "3"
+
+# Notifications
+notify-rust = "4"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+[dev-dependencies]
+mockall = "0.13"
+pretty_assertions = "1"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
