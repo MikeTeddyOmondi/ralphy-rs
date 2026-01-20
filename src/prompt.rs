@@ -73,10 +73,13 @@ pub fn build_prompt(config: &Config, task_override: Option<&str>) -> String {
     ));
     step += 1;
 
-    prompt.push_str(&format!(
-        "{}. Commit your changes with a descriptive message.\n",
-        step
-    ));
+    if !config.skip_commits {
+        prompt.push_str(&format!(
+            "{}. Commit your changes with a descriptive message.\n",
+            step
+        ));
+        step += 1;
+    }
 
     prompt.push_str("\nONLY WORK ON A SINGLE TASK.");
 

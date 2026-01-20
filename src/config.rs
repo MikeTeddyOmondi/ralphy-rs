@@ -10,6 +10,7 @@ pub struct Config {
     pub prd_source: PrdSource,
     pub skip_tests: bool,
     pub skip_lint: bool,
+    pub skip_commits: bool,
     pub max_iterations: usize,
     pub max_retries: usize,
     pub retry_delay: u64,
@@ -31,6 +32,7 @@ impl Config {
         let ai_engine = cli.get_ai_engine();
         let skip_tests = cli.skip_tests();
         let skip_lint = cli.skip_lint();
+        let skip_commits = cli.skip_commits();
 
         // Destructure cli to avoid partial move issues
         let Cli {
@@ -81,6 +83,7 @@ impl Config {
             prd_source,
             skip_tests,
             skip_lint,
+            skip_commits,
             max_iterations,
             max_retries,
             retry_delay,
@@ -120,6 +123,9 @@ impl Config {
         }
         if self.skip_lint {
             mode_parts.push("no-lint".to_string());
+        }
+        if self.skip_commits {
+            mode_parts.push("no-commits".to_string());
         }
         if self.dry_run {
             mode_parts.push("dry-run".to_string());

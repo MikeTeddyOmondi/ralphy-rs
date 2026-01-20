@@ -148,7 +148,7 @@ Format:
 tasks:
   - title: First task
     completed: false
-    parallel_group: 1  # Optional
+    parallel_group: 1  # Optional field set
   - title: Second task
     completed: false
     parallel_group: 1
@@ -166,7 +166,7 @@ ralphy --github owner/repo --github-label ready
 
 ## 🎯 Advanced Usage
 
-### Skip Tests or Linting
+### Skip Tests, Linting and Git Commits
 
 ```bash
 # Skip tests
@@ -175,7 +175,10 @@ ralphy --no-tests
 # Skip linting
 ralphy --no-lint
 
-# Skip both (fast mode)
+# Skip git commits
+ralphy --no-commits
+
+# Skip all tests, linting & git commits (fast mode)
 ralphy --fast
 ```
 

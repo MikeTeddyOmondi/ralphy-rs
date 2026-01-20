@@ -56,7 +56,11 @@ pub struct Cli {
     #[arg(long, alias = "skip-lint")]
     pub no_lint: bool,
 
-    /// Skip both tests and linting (shorthand for --no-tests --no-lint)
+    /// Skip git commits
+    #[arg(long, alias = "skip-commits")]
+    pub no_commits: bool,
+
+    /// Skip both tests, linting and git commits (shorthand for --no-tests --no-lint --no-commits)
     #[arg(long)]
     pub fast: bool,
 
@@ -207,5 +211,9 @@ impl Cli {
 
     pub fn skip_lint(&self) -> bool {
         self.no_lint || self.fast
+    }
+
+    pub fn skip_commits(&self) -> bool {
+        self.no_commits || self.fast
     }
 }
